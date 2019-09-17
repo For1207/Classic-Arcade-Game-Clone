@@ -29,7 +29,7 @@ Enemy.prototype.render = function() {
 class Hero {
   constructor() {
     this.x = 202; // defines hero's  x initial position on the board
-    this.y = 415; // defines hero's  y initial position on the board
+    this.y = 404; // defines hero's  y initial position on the board
     this.sprite = 'images/char-boy.png';
   }
 
