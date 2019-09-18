@@ -1,31 +1,29 @@
 // Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+var Enemy = function(x, y, speed) {
+  this.x = x;
+  this.y = y + 62;
+  this.sprite = 'images/enemy-bug.png';
+  this.block = 101;
+  this.speed = speed;
 };
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+  if(this.x < this.block * 5) { // condition to let enemies move away from the board
+    this.x += this.speed * dt;
+  }
+  else { // return enemis to the start
+    this.x = -this.block;
+  }
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-// add class Hero
+// Add class Hero
 class Hero {
   constructor() {
     this.x = 202; // defines hero's  x initial position on the board
@@ -66,14 +64,17 @@ class Hero {
   }
 }
 
-const player = new Hero();
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+const player = new Hero(); //instatiate the Hero object
+const enemy1 = new Enemy(-152, 0, 100);//instatiate the Enemy objects
+const enemy2 = new Enemy(-352, 0, 300);
+const enemy3 = new Enemy(-352, 83, 150);
+const enemy4 = new Enemy(-452, 83, 400);
+const enemy5 = new Enemy(-352, 166, 200);
+const enemy6 = new Enemy(-652, 166, 500);
+const allEnemies = [enemy1, enemy2, enemy3, enemy4,  enemy5, enemy6];
 
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// This listens for key presses and sends the keys to
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
