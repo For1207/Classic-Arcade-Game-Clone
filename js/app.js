@@ -16,9 +16,9 @@ Enemy.prototype.update = function(dt) {
   else { // return enemis to the start
     this.x = -101;
 //Randomise enemies position by Y-axis;
-    const blocksY = [62, 145, 228];
-    const randomsBlockY= Math.floor(Math.random()*3);
-    this.y = blocksY[randomsBlockY];
+    const rows = [62, 145, 228];
+    const randomRow= Math.floor(Math.random()*3);
+    this.y = rows[randomRow];
   }
 };
 
@@ -36,12 +36,19 @@ class Hero {
   }
   update() {
     for(let enemy of allEnemies) {
-      if(this.y === enemy.y &&  (enemy.x + 75 > this.x && enemy.x < this.x + 75)) {
-        alert('Collide!');
+      if(this.y === enemy.y &&  (enemy.x + 77 > this.x && enemy.x < this.x + 77)) {
+        this.reset();
       }
-      // console.log(this.x, enemy.x);
-      // debugger;
+      if(this.y < 0) {
+        this.reset();
+        alert('Win!');
+      }
     }
+  };
+
+  reset() {
+    this.x = 202;
+    this.y = 394;
   };
 
 
