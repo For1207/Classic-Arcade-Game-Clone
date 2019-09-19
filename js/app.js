@@ -1,20 +1,24 @@
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
   this.x = x;
-  this.y = y + 62;
+  this.y = y;
   this.sprite = 'images/enemy-bug.png';
-  this.block = 101;
+  // this.block = 101;
   this.speed = speed;
 };
 
 // Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-  if(this.x < this.block * 5) { // condition to let enemies move away from the board
+  if(this.x < 505) { // condition to let enemies move away from the board
     this.x += this.speed * dt;
   }
   else { // return enemis to the start
-    this.x = -this.block;
+    this.x = -101;
+//Randomise enemies position by Y-axis;
+    const blocksY = [62, 145, 228];
+    const randomsBlockY= Math.floor(Math.random()*3);
+    this.y = blocksY[randomsBlockY];
   }
 };
 
@@ -27,9 +31,19 @@ Enemy.prototype.render = function() {
 class Hero {
   constructor() {
     this.x = 202; // defines hero's  x initial position on the board
-    this.y = 404; // defines hero's  y initial position on the board
+    this.y = 394 ; // defines hero's  y initial position on the board
     this.sprite = 'images/char-boy.png';
   }
+  update() {
+    for(let enemy of allEnemies) {
+      if(this.y === enemy.y &&  (enemy.x + 75 > this.x && enemy.x < this.x + 75)) {
+        alert('Collide!');
+      }
+      // console.log(this.x, enemy.x);
+      // debugger;
+    }
+  };
+
 
   // add the hero to an initial position
   render() {
@@ -55,7 +69,7 @@ class Hero {
         }
         break;
       case 'down':
-        if (this.y < 404) {
+        if (this.y < 394) {
         this.y += 83;
         }
         break;
@@ -65,12 +79,12 @@ class Hero {
 }
 
 const player = new Hero(); //instatiate the Hero object
-const enemy1 = new Enemy(-152, 0, 100);//instatiate the Enemy objects
-const enemy2 = new Enemy(-352, 0, 300);
-const enemy3 = new Enemy(-352, 83, 150);
-const enemy4 = new Enemy(-452, 83, 400);
-const enemy5 = new Enemy(-352, 166, 200);
-const enemy6 = new Enemy(-652, 166, 500);
+const enemy1 = new Enemy(-101, 62, 101);//instatiate the Enemy objects
+const enemy2 = new Enemy(-101, 62, 152);
+const enemy3 = new Enemy(-101, 145, 203);
+const enemy4 = new Enemy(-101, 145, 254);
+const enemy5 = new Enemy(-101, 228, 305);
+const enemy6 = new Enemy(-101, 228, 356);
 const allEnemies = [enemy1, enemy2, enemy3, enemy4,  enemy5, enemy6];
 
 // This listens for key presses and sends the keys to
