@@ -33,6 +33,7 @@ class Hero {
     this.x = 202; // defines hero's  x initial position on the board
     this.y = 394 ; // defines hero's  y initial position on the board
     this.sprite = 'images/char-boy.png';
+    this.youWin = false;
   }
   update() {
     for(let enemy of allEnemies) {
@@ -40,8 +41,9 @@ class Hero {
         this.reset();
       }
       if(this.y < 0) {
-        this.reset();
-        alert('Win!');
+        this.youWin = true;
+        this.y = 394;
+
       }
     }
   };
