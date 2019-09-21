@@ -19,10 +19,10 @@ body {
   flex-direction: column;
   background: #fff;
   position: absolute;
-  top: 23%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 125px;
+  left: 175px;
+  width: 405px;
+  height: 305px;
 
 }
 

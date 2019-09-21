@@ -1,21 +1,24 @@
-// Enemies our player must avoid
+// Enemies the player must avoid
 var Enemy = function(x, y, speed) {
   this.x = x;
   this.y = y;
   this.sprite = 'images/enemy-bug.png';
-  // this.block = 101;
   this.speed = speed;
 };
 
 // Update the enemy's position
-// Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
   if(this.x < 505) { // condition to let enemies move away from the board
     this.x += this.speed * dt;
   }
   else { // return enemis to the start
-    this.x = -101;
-//Randomise enemies position by Y-axis;
+
+    //Randomise enemies position by x axis;
+    const columns = [-101, -152, -202, -254, -303, -101];
+    const randomColumn = Math.floor(Math.random()*5);
+    this.x = columns[randomColumn];
+    
+    //Randomise enemies position by y axis;
     const rows = [62, 145, 228];
     const randomRow= Math.floor(Math.random()*3);
     this.y = rows[randomRow];
@@ -30,8 +33,8 @@ Enemy.prototype.render = function() {
 // Add class Hero
 class Hero {
   constructor() {
-    this.x = 202; // defines hero's  x initial position on the board
-    this.y = 394 ; // defines hero's  y initial position on the board
+    this.x = 202; // defines hero's initial x-position on the board
+    this.y = 394 ; // defines hero's initial y-position on the board
     this.sprite = 'images/char-boy.png';
     this.youWin = false;
   }
