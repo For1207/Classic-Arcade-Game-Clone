@@ -17,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     const columns = [-101, -152, -202, -254, -303, -101];
     const randomColumn = Math.floor(Math.random()*5);
     this.x = columns[randomColumn];
-    
+
     //Randomise enemies position by y axis;
     const rows = [62, 145, 228];
     const randomRow= Math.floor(Math.random()*3);
@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Add class Hero
@@ -37,7 +37,8 @@ class Hero {
     this.y = 394 ; // defines hero's initial y-position on the board
     this.sprite = 'images/char-boy.png';
     this.youWin = false;
-  }
+  };
+
   update() {
     for(let enemy of allEnemies) {
       if(this.y === enemy.y &&  (enemy.x + 77 > this.x && enemy.x < this.x + 77)) {
@@ -46,7 +47,6 @@ class Hero {
       if(this.y < 0) {
         this.youWin = true;
         this.y = 394;
-
       }
     }
   };
@@ -56,8 +56,7 @@ class Hero {
     this.y = 394;
   };
 
-
-  // add the hero to an initial position
+  // Add the hero to an initial position
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
@@ -86,12 +85,14 @@ class Hero {
         }
         break;
     }
-
   }
 }
 
-const player = new Hero(); //instatiate the Hero object
-const enemy1 = new Enemy(-101, 62, 101);//instatiate the Enemy objects
+// Instatiate the Hero object
+const player = new Hero();
+
+ // Rows 94 - 100 nstatiate the Enemy objects
+const enemy1 = new Enemy(-101, 62, 101);
 const enemy2 = new Enemy(-101, 62, 152);
 const enemy3 = new Enemy(-101, 145, 203);
 const enemy4 = new Enemy(-101, 145, 254);
@@ -99,15 +100,14 @@ const enemy5 = new Enemy(-101, 228, 305);
 const enemy6 = new Enemy(-101, 228, 356);
 const allEnemies = [enemy1, enemy2, enemy3, enemy4,  enemy5, enemy6];
 
-// This listens for key presses and sends the keys to
-// Player.handleInput() method.
+// This listens for key presses and sends the keys to Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
+  var allowedKeys = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
+  };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+  player.handleInput(allowedKeys[e.keyCode]);
 });
