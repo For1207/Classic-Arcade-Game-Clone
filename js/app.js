@@ -10,8 +10,7 @@ var Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
   if(this.x < 505) { // condition to let enemies move away from the board
     this.x += this.speed * dt;
-  }
-  else { // return enemis to the start
+  } else { // return enemis to the start
 
     //Randomise enemies position by x axis;
     const columns = [-101, -152, -202, -254, -303, -101];
@@ -22,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     const rows = [62, 145, 228];
     const randomRow= Math.floor(Math.random()*3);
     this.y = rows[randomRow];
-  }
+    }
 };
 
 // Draw the enemy on the screen

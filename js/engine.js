@@ -44,10 +44,9 @@ var Engine = (function(global) {
     if (player.youWin === true) {
       win.cancelAnimationFrame(gameOver);
       modal.classList.toggle('visible');
-    }
-    else {
-      gameOver = win.requestAnimationFrame(main);
-    }
+    } else {
+        gameOver = win.requestAnimationFrame(main);
+      }
   }
 
   // This function does initial setup, setting the lastTime variable.
