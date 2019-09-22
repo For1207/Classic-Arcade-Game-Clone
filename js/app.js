@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
-// Draw the enemy on the screen
+// Draw the enemies on the screen
 Enemy.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
