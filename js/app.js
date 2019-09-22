@@ -12,15 +12,15 @@ Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
   } else { // return enemis to the start
 
-    //Randomise enemies position by x axis;
-    const columns = [-101, -152, -202, -254, -303, -101];
-    const randomColumn = Math.floor(Math.random()*5);
-    this.x = columns[randomColumn];
+      //Randomise enemies position by x axis;
+      const columns = [-101, -152, -202, -254, -303, -101];
+      const randomColumn = Math.floor(Math.random()*5);
+      this.x = columns[randomColumn];
 
-    //Randomise enemies position by y axis;
-    const rows = [62, 145, 228];
-    const randomRow= Math.floor(Math.random()*3);
-    this.y = rows[randomRow];
+      //Randomise enemies position by y axis;
+      const rows = [62, 145, 228];
+      const randomRow= Math.floor(Math.random()*3);
+      this.y = rows[randomRow];
     }
 };
 
@@ -60,7 +60,7 @@ class Hero {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-// Updat hero's x/y coordidates accordingly to pressed key and width/height of game board blocks
+// Update hero's x/y coordidates accordingly to pressed key and width/height of game board blocks
   handleInput(position) {
     switch(position) {
       case 'left':
@@ -85,9 +85,10 @@ class Hero {
         break;
     }
   }
+
 }
 
-// Instatiate the Hero object
+// Instantiates the Hero object
 const player = new Hero();
 
  // Rows 94 - 100 nstatiate the Enemy objects

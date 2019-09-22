@@ -1,36 +1,52 @@
 body {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 }
 
 @keyframes rotate {
   from {
-        transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-        transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.modal {
+/* .modal {
   display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: #fff;
-  position: absolute;
-  top: 125px;
-  left: 175px;
-  width: 405px;
-  height: 305px;
+  position: relative;
+  top: 25%;
+  left:25%;
+  width: 300px;
+  height: 300px;
+} */
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  top: 147px;
+  width: 404px;
+  height: 300px;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
 }
-
 .visible {
   display: flex;
+
+
 }
 
 .checkmark {
+  margin-top: 20px;
   width: 50px;
   height: 50px;
   padding: 4px;
@@ -50,7 +66,6 @@ body {
 
  .modal-exclamation {
   font-size: 18px;
-  margin-top: -10px;
   letter-spacing: -1px;
   color: #4a4a4a;
   animation-delay: 2s;

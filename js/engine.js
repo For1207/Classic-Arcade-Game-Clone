@@ -12,6 +12,7 @@ var Engine = (function(global) {
     const playAgain = document.querySelector('.modal-play-again');
 
   playAgain.addEventListener('click', function() {
+      modal.classList.toggle('background');
       modal.classList.toggle('visible');
       player.reset();
       player.youWin = false;

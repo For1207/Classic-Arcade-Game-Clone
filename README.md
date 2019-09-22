@@ -1,20 +1,38 @@
 # Classic Arcade Game Clone Project
 
-## Table of Contents
+The goal of this project is to develop a simple arcade game using JavaScript object-oriented programming features.
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+This game meets criteria described in:
+* ["Classic Arcade Game Clone Project Specification"](https://review.udacity.com/#!/rubrics/15/view);
+* [Udacity Front End Nanodegree JavaScript Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
 
-## Instructions
+[Visual assets and a game loop engine](https://github.com/udacity/frontend-nanodegree-arcade-game) code was provided.
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+## Implementation
+We need to add some code to the starter code and write new by following provided comments. Steps bellow describe this process:
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+    * Developing "Hero";
+    * Additions to the Starter Code;
+    * Developing "Enemies";
+    * Developing Collisions and Win Conditions;
+    * Game Reset;
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+### Developing "Hero"
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+In file app.js:
 
-## Contributing
+`class Hero ` consist of a constructor function and methods:
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+`constructor()` defines hero's initial position on the board, an image we use to render the hero and a boolean operator which will be used later as a part of resetting process;
+
+`update()` method contains the collision condition between the hero and enemies. Win condition if the hero reaches water and resets hero position to an initial if any of them has occurred;
+
+`reset()` fucntion just contains hero's initial coordinates on the board;
+
+`render()` method renders the hero at an initial position;
+
+`handleInput()`:
+* updates hero's x/y coordidates accordingly to pressed key and width/height of game board blocks;
+* `if` conditions in lines 67, 72, 77, 82 keeps the hero inside the game board;
+
+Line 92 `const player = new Hero();` instantiates the Hero object;
