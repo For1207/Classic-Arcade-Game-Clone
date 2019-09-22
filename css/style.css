@@ -12,19 +12,6 @@ body {
   }
 }
 
-/* .modal {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: #fff;
-  position: relative;
-  top: 25%;
-  left:25%;
-  width: 300px;
-  height: 300px;
-} */
-
 .modal {
   display: none;
   position: fixed;
@@ -41,8 +28,6 @@ body {
 }
 .visible {
   display: flex;
-
-
 }
 
 .checkmark {
@@ -53,7 +38,7 @@ body {
   border: solid 3px lightgrey;
   border-radius: 50%;
   opacity: 0.5;
-  animation-duration: 3s; /*here and below: keyframes are declared in index.html in the <head> and class name of */
+  animation-duration: 3s; /*here and below: keyframes are declared in index.html in the <head>*/
 }
 
 .modal-header {

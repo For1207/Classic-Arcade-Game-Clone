@@ -85,7 +85,6 @@ class Hero {
         break;
     }
   }
-
 }
 
 // Instantiates the Hero object
