@@ -35,7 +35,7 @@ In file app.js:
 
 `handleInput()`:
 * updates hero's x/y coordidates accordingly to pressed key and width/height of game board blocks;
-* `if` conditions in lines 70, 75, 80, 85 keeps the hero inside the game board;
+* `if` conditions in lines 67, 72, 77, 82 keeps the hero inside the game board;
 
 Line 92 `const player = new Hero();` instantiates the Hero object;
 
@@ -45,7 +45,7 @@ In `var Enemy = function(x, y, speed)`:
  * `this.x = x; this.y = y;` - set a placeholder for an enemy's initial position;
  * `this.speed` - used to set an enemy's speed;
 
- Then in lines 97 - 103 we set up enemy 6 enemy objects and create an `allEmenies` array.
+ Then in lines 95 - 101 we set up enemy 6 enemy objects and create an `allEmenies` array.
 
  `Enemy.prototype.update = function(dt)`:
  * contains a condition which allows the enemies move away from the board;
@@ -74,6 +74,15 @@ Function `playAgain.addEventListener` in line 14 adds an event listener to "Play
 * toggle of the modal window;
 * change `youWin` to `false`;
 * restart animation loop.
+
+## Instructions
+
+  1. Double click the file `index.html` in this folder to start the game. It will open the game in your browser. There you will have the main hero on the grass and bugs running the road.
+  2. You task is using arrow keyboard keys conduct the hero to the water.
+  3. Use `Up`, `Down`, `Left` and `Right` arrow keys to move the hero up, down, left and right accordingly on the game board one block at a time.
+  4. You should avoid collisions with bugs. If this happen the game will be started over and the hero returned to the initial position.
+  5. You win, when the hero reaches water, then a pop up window will appear with an offer to play again.
+  6. Enjoy!
 
 ## References
 1. [MDN web docs](https://developer.mozilla.org/en-US/);
