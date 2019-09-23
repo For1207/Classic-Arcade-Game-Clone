@@ -43,9 +43,12 @@ class Hero {
       if(this.y === enemy.y &&  (enemy.x + 77 > this.x && enemy.x < this.x + 77)) {
         this.reset();
       }
-      if(this.y < 0) {
+      if(this.y < -20) {
+
         this.youWin = true;
-        this.y = 394;
+        setTimeout(function(){
+          this.y = 394;
+        }, 500);
       }
     }
   };
